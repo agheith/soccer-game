@@ -61,7 +61,9 @@ const styles = StyleSheet.create({
 
   emoji: {
       flex: 1,
-      fontSize: 25,
+      fontSize: 55,
+      backgroundColor: 'transparent',
+      color: 'white'
   }
 });
 
