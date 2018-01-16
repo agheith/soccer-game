@@ -5,7 +5,7 @@ class Emoji extends Component {
   constructor(props) {
     super(props);
     this.scored=['👍', '👏', '👋', '😎', '💪', '⚽', '❗', '🐐', '❤️'];
-    this.missed = ['😢', '😭', '😔', '😡', '😠', '💔', 'try 🏀', 'You may be better at ⛳', '😱'];
+    this.missed = ['😢', '😭', '😔', '😡', '😠', '💔', 'try 🏀', 'You may be better at 🏈', '😱'];
     this.state = {
         opacity: new Animated.Value(0),
     };

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ImageBackground, Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, Dimensions, Image, StatusBar,  StyleSheet, Text, View } from 'react-native';
+import { Constants } from 'expo';
 import Emoji from './src/components/Emoji';
 import Score from './src/components/Score';
 
@@ -18,6 +19,18 @@ const FLOOR_Y = SCREEN_HEIGHT - BALL_HEIGHT;
 const FLOOR_X = SCREEN_WIDTH / 2;
 const SCORE_Y = SCREEN_HEIGHT / 6;
 const EMOJI_Y = SCREEN_HEIGHT / 3;
+
+function HomeStatusBar({ backgroundColor, ...props }) {
+  return (
+    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
+      <StatusBar
+        translucent
+        backgroundColor={backgroundColor}
+        {...props}
+      />
+    </View>
+  );
+}
 
 export default class App extends Component {
 
@@ -134,6 +147,10 @@ export default class App extends Component {
         style={{width: '100%', height: '100%'}}
       >
         <View>
+          <HomeStatusBar
+            backgroundColor="transparent"
+            barStyle="light-content"
+          />
           <Score score={this.state.score} y={SCORE_Y} scored={this.state.scored} />
           <Emoji scored={this.state.scored} y={EMOJI_Y} lost={this.state.lost} />
           <Image
@@ -154,11 +171,4 @@ const styles = StyleSheet.create({
         width: BALL_WIDTH,
         height: BALL_HEIGHT,
     },
-
-    // backgroundImage: {
-    //   flex: 1,
-    //   // resizeMode: 'stretch',
-    //   width: null,
-    //   height: null,
-    // }
 });
