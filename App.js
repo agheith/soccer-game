@@ -51,6 +51,7 @@ export default class App extends Component {
         <Image
           source={require('./src//images/soccer_ball.png')}
           style={[styles.ball, position, rotation]}
+          // onStartShouldSetResponder={(event) => this.onTap(event.nativeEvent)}
         />
       </View>
     );
